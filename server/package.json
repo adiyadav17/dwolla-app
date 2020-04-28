@@ -7,8 +7,8 @@
     "start": "node app.js"
   },
   "keywords": [
-    "Creative Travel",
-    "Partner Login"
+    "Dwolla",
+    "app"
   ],
   "author": "Atul Yadav",
   "license": "MIT",

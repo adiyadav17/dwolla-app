@@ -1,5 +1,4 @@
 const http = require('http');
-const dwollaconfig = require('./config/dwolla');
 // Bring in the database object
 const express = require('express');
 const bodyParser = require('body-parser');
