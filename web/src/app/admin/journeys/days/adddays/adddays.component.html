@@ -1,0 +1,66 @@
+<app-header></app-header>
+<div class="container-fluid">
+  <div class="card shadow mb-4">
+      <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-dark">Add Day</h6>
+      </div>
+      <div class="card-body">
+          <div class="row">
+              <div class="col-md-12">
+                  <form [formGroup]="dayform" (ngSubmit)="onSubmit()">
+                      <div class="row">
+                          <input type="hidden" id="id" formControlName="id" class="form-control" name="id" value="">
+                          <input type="hidden" id="cid" formControlName="cid" class="form-control" name="cid" [value]="cid">
+                          <div class="form-group col-md-3">
+                              <label>Day</label>
+                              <input type="text" formControlName="day" placeholder="Day" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.day.errors }" />
+                              <div *ngIf="submitted && f.day.errors" class="invalid-feedback">
+                                  <div *ngIf="f.day.errors.required">Title is required</div>
+                              </div>
+                          </div>
+                          <div class="form-group col-md-9">
+                              <label>Title</label>
+                              <input type="text" formControlName="title" placeholder="Title" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.title.errors }" />
+                              <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+                                  <div *ngIf="f.title.errors.required">Title is required</div>
+                              </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="form-group col-md-3">
+                              <label>Date</label>
+                              <input type="text" formControlName="date" placeholder="Date" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.date.errors }" />
+                              <div *ngIf="submitted && f.date.errors" class="invalid-feedback">
+                                  <div *ngIf="f.date.errors.required">Title is required</div>
+                              </div>
+                          </div>
+                          <div class="col-md-3">
+                              <label>Hotel</label>
+                              <ng-select formControlName="hotel" [(ngModel)]="selectedhotel">
+                                  <ng-option *ngFor="let hotel of hotellist;" [value]="hotel._id">{{hotel.hname}}</ng-option>
+                              </ng-select>
+                              <div *ngIf="submitted && f.hotel.errors" class="invalid-feedback">
+                                <div *ngIf="f.hotel.errors.required">Description is required</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label>Description</label>
+                                <app-ngx-editor [placeholder]="'Enter text here...'" [spellcheck]="true" formControlName="description" [(ngModel)]="description"></app-ngx-editor>
+                                <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+                                  <div *ngIf="f.description.errors.required">Description is required</div>
+                              </div>
+                            </div>
+                        </div>
+
+                      
+                  </form>
+              </div>
+          </div>
+    </div>
+    <div class="card-footer text-muted">
+        <button type="button" class="btn btn-secondary " (click)="goBack()"><i class="fa fa-arrow-left"></i> Back</button>
+        <button type="button" (click)="onSubmit()" class="btn btn-brand ml-3"><i class="fa fa-save"></i> Submit</button>
+    </div>
+</div>

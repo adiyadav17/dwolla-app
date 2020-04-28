@@ -1,0 +1,24 @@
+<div class="form-group">
+    <div for="file" class="mb-2">Thumbnail <span class="text-muted">(258X258px)</span></div>
+
+    <div class="mb-3 file-upload-wrap">
+        <input type="file" ng2FileSelect [uploader]="uploader" id="thumb" (change)="readUrl($event)" />
+        <button type="button" class="btn btn-success btn-circle btn-s" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+          <i class="fa fa-cloud-upload"></i>
+        </button>
+        <div class="loader-overley" *ngIf="uploader.progress > 0 && uploader.progress < 100"><app-loader></app-loader></div>
+      </div>
+
+    <fieldset disabled *ngIf="imgurl">
+        <div class="file-upload-img-wrap">
+          <img [src]="imgurl" id="imgUrl">
+        </div>
+    </fieldset>
+
+    <fieldset disabled *ngIf="passThumbUrl && !imgurl">
+        <div class="file-upload-img-wrap">
+        <!-- <input type="text" class="form-control" [value]="passImgUrl" id="imgUrl" placeholder="Disabled input"> -->
+        <img [src]="'http://craftedbycreative.com/'+passThumbUrl" id="passThumbUrl">
+      </div>
+  </fieldset>
+</div>

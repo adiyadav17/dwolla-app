@@ -1,0 +1,24 @@
+<div class="form-group">
+  <div for="icon" class="mb-2">Icon <span class="text-muted">(100X100px)</span></div>
+
+  <div class="mb-3 file-upload-wrap">
+      <input type="file" ng2FileSelect [uploader]="uploader" id="icon" (change)="readUrl($event)" />
+      <button type="button" class="btn btn-success btn-circle btn-s" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+        <i class="fa fa-cloud-upload"></i>
+      </button>
+      <div class="loader-overley" *ngIf="uploader.progress > 0 && uploader.progress < 100"><app-loader></app-loader></div>
+    </div>
+
+  <fieldset disabled *ngIf="iconurl">
+      <div class="file-upload-img-wrap">
+        <img [src]="iconurl" id="iconurl">
+      </div>
+  </fieldset>
+
+  <fieldset disabled *ngIf="passIconUrl && !iconurl">
+      <div class="file-upload-img-wrap dark">
+      <!-- <input type="text" class="form-control" [value]="passiconurl" id="iconurl" placeholder="Disabled input"> -->
+      <img [src]="'http://craftedbycreative.com/'+passIconUrl" id="passIconUrl">
+    </div>
+</fieldset>
+</div>

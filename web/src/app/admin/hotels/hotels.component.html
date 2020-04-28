@@ -1,0 +1,45 @@
+
+<app-header></app-header>
+
+<div class="container-fluid">
+    <div class="card text-center">
+        <app-admin-header></app-admin-header>
+        <div class="">
+            <table class="table table-striped mb-0">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                 
+                    <th scope="col">Name</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Rating</th>
+                    <th scope="col" class="text-right"><button class="btn btn-success btn-sm add-btn" title="Add Category" (click)="addexpert()"><i class="fa fa-plus"></i>&nbsp; Add New</button></th>
+                  </tr>
+                </thead>
+                <tbody *ngIf="hotellist?.length">
+                  <tr *ngFor="let hotel of hotellist | paginate: { itemsPerPage: 10, autoHide:true, currentPage: p }; index as i">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{hotel.hname}}</td>
+                    <td>{{hotel.city}}</td>
+                    <td>{{hotel.rating}}</td>
+                    <td class="text-right">
+                        <button data-id="{{ hotel._id }}" class="btn btn-primary btn-sm icon-btn" (click)="editHotel(hotelId=hotel._id)" title="Edit Hotel"><i class="fa fa-edit"></i></button> 
+                        <button data-id="{{ hotel._id }}" (click)="deleteHotel(hotelId=hotel._id)" class="btn btn-secondary btn-sm ml-2 icon-btn" title="Delete Hotel"><i class="fa fa-trash"></i></button> 
+                    </td>
+                  </tr>
+                </tbody>
+
+                <tbody *ngIf="!hotellist?.length && !showLoader">
+                  <tr>
+                    <td colspan="5" class="text-center">No Data Found</td>
+                  </tr>
+              </tbody>
+                
+            </table>
+              <div class="card-footer text-muted text-right" *ngIf="hotellist?.length > 10"><div class=""> <pagination-controls (pageChange)="p = $event"></pagination-controls></div></div>
+              <div *ngIf="showLoader"><app-loader></app-loader></div>
+        </div>
+       
+      </div>
+</div>
+

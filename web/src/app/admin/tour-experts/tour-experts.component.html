@@ -1,0 +1,44 @@
+
+<app-header></app-header>
+
+<div class="container-fluid">
+    <div class="card text-center">
+        <app-admin-header></app-admin-header>
+        <div class="">
+            <table class="table table-striped mb-0">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th>Image</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Designation</th>
+                    <th scope="col" class="text-right"><button class="btn btn-success btn-sm add-btn" title="Add Category" (click)="addexpert()"><i class="fa fa-plus"></i>&nbsp; Add New</button></th>
+                  </tr>
+                </thead>
+                <tbody *ngIf="expertlist?.length">
+                  <tr *ngFor="let expert of expertlist | paginate: { itemsPerPage: 10, autoHide:true, currentPage: p }; index as i">
+                    <th scope="row">{{i+1}}</th>
+                    <td><img src="http://craftedbycreative.com/{{expert.thumb}}"  height="40px"></td>
+                    <td>{{expert.firstname}}</td>
+                    <td>{{expert.designation}}</td>
+                    <td class="text-right">
+                        <button data-id="{{ expert._id }}" class="btn btn-primary btn-sm icon-btn" (click)="edit(expertId=expert._id)" title="Edit Expert"><i class="fa fa-edit"></i></button>
+                        <button data-id="{{ expert._id }}" (click)="delete(expertId=expert._id)" class="btn btn-secondary btn-sm ml-2 icon-btn" title="Delete Expert"><i class="fa fa-trash"></i></button>
+                    </td>
+                  </tr>
+                </tbody>
+
+                <tbody *ngIf="!expertlist?.length && !showLoader">
+                  <tr>
+                    <td colspan="7" class="text-center">No Data Found</td>
+                  </tr>
+              </tbody>
+
+            </table>
+              <div class="card-footer text-muted text-right" *ngIf="expertlist?.length > 10"><div class=""> <pagination-controls (pageChange)="p = $event"></pagination-controls></div></div>
+              <div *ngIf="showLoader"><app-loader></app-loader></div>
+        </div>
+
+      </div>
+</div>
+

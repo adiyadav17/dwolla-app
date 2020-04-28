@@ -1,0 +1,33 @@
+
+<app-header></app-header>
+
+<div class="container-fluid">
+    <div class="card text-center">
+        <app-admin-header></app-admin-header>
+        <div class="">
+            <table class="table table-striped mb-0">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">User Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col" class="text-right"><button class="btn btn-success btn-sm add-btn" title="Add Category" (click)="addAdmin()"><i class="fa fa-plus"></i>&nbsp; Add New</button></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let user of userlist; index as i">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{user.username}}</td>
+                    <td>{{user.email}}</td>
+                    <td class="text-right">
+                      <button data-id="{{ user._id }}" class="btn btn-primary btn-sm icon-btn" (click)="edituser(userId=user._id)" title="Edit User"><i class="fa fa-edit"></i></button> 
+                      <button data-id="{{ user._id }}" (click)="deleteuser(userId=user._id)" class="btn btn-secondary btn-sm ml-2 icon-btn" title="Delete User"><i class="fa fa-trash"></i></button> 
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+       
+      </div>
+</div>
+

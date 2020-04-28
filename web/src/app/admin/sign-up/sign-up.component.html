@@ -1,0 +1,79 @@
+<app-header-login></app-header-login>
+<div class="row h-100">
+  <div class="col-md-8">
+  </div>
+  <div class="col-md-4">
+      <div class="card bg-white h-100">
+          <article class="card-body mx-auto" style="width: 100%;">
+              <h4 class="card-title mt-3 text-center">Create Account</h4>
+              <form #signUpForm="ngForm" (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)">
+                  <div class="form-group input-group">
+                    
+                    <input type="text" #firstname="ngModel" class="form-control" [(ngModel)]="AdminService.selectedUser.firstname" name="firstname" placeholder="First Name"
+                    required  [ngClass]="{'invalid-textbox' :signUpForm.submitted && !firstname.valid }">
+                    <div *ngIf="signUpForm.submitted && !firstname.valid">
+                      <label class="validation-message">This field is required.</label>
+                    </div>
+                </div>
+                <div class="form-group input-group">
+                  <input type="text" #lastname="ngModel" class="form-control" [(ngModel)]="AdminService.selectedUser.lastname" name="lastname" placeholder="Last Name"
+                  required  [ngClass]="{'invalid-textbox' :signUpForm.submitted && !lastname.valid }">
+                  <div *ngIf="signUpForm.submitted && !lastname.valid">
+                    <label class="validation-message">This field is required.</label>
+                  </div>
+                </div>
+
+                <div class="form-group input-group">
+                  <input type="text" #email="ngModel" autocomplete="off" class="form-control" [(ngModel)]="AdminService.selectedUser.email" name="email" placeholder="Email"
+                  required [pattern]="emailRegex"  [ngClass]="{'invalid-textbox' :signUpForm.submitted && !email.valid }">
+                  <div *ngIf="signUpForm.submitted && email.errors">
+                    <label *ngIf="email.errors.required" class="validation-message">This field is required.</label>
+                    <label *ngIf="email.errors.pattern" class="validation-message">Invalid email address.</label>
+                  </div>
+              </div>
+              <div class="form-group input-group">
+                  <input type="text" #country="ngModel" class="form-control" [(ngModel)]="AdminService.selectedUser.country" name="country" placeholder="country Name"
+                  required  [ngClass]="{'invalid-textbox' :signUpForm.submitted && !country.valid }">
+                  <div *ngIf="signUpForm.submitted && !country.valid">
+                    <label class="validation-message">This field is required.</label>
+                  </div>
+              </div>
+              <div class="form-group input-group">
+                <input type="text" #company="ngModel" class="form-control" [(ngModel)]="AdminService.selectedUser.company" name="company" placeholder="company Name"
+                required  [ngClass]="{'invalid-textbox' :signUpForm.submitted && !company.valid }">
+                <div *ngIf="signUpForm.submitted && !company.valid">
+                  <label class="validation-message">This field is required.</label>
+                </div>
+              </div>
+                <input type="hidden" #isactive="ngModel" [(ngModel)]="AdminService.selectedUser.isactive" name="isactive" value="false">
+            
+              <div class="form-group input-group">
+                <input type="password" #password="ngModel" class="form-control" [(ngModel)]="AdminService.selectedUser.password" name="password" placeholder="Password"
+                minlength="4" required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !password.valid }">
+                <div *ngIf="signUpForm.submitted && password.errors">
+                  <label *ngIf="password.errors.required" class="validation-message">This field is required.</label>
+                  <label *ngIf="password.errors.minlength" class="validation-message">Enter atleast 4 characters.</label>
+                </div>
+              </div>
+                
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block"> Create Account</button>
+                </div> <!-- form-group// -->      
+                <p class="text-center">Have an account?  <span routerLink="/login" routerLinkActive="active">Sign In</span> </p>      
+              </form>
+      
+              <!-- Success message -->
+              <div class="success" *ngIf="showSucessMessage">
+                Saved successfully
+              </div>
+      
+              <!-- Error message -->
+              <div class="alert" *ngIf="serverErrorMessages">
+                {{serverErrorMessages}}
+              </div>
+ 
+          </article>
+      </div> 
+  </div>
+
+</div>

@@ -1,0 +1,44 @@
+<app-header></app-header>
+<div class="container-fluid">
+  <div class="card shadow mb-4">
+      <div class="card-header py-3">
+          <h6 *ngIf="tourdata" class="m-0 font-weight-bold"><span></span>Add Days in - <span class="text-dark">{{tourdata.title}}</span></h6>
+      </div>
+      <div class="card-body p-0">
+          <table class="table table-striped mb-0">
+              <thead>
+                <tr>
+                  <th scope="col">Day</th>
+                  <th scope="col">Title</th>
+                  <th scope="col">Date</th>
+                  <th scope="col" class="text-right"><button class="btn btn-info btn-sm add-btn" title="Add Joureny" (click)="addDays()"><i class="fa fa-plus"></i>&nbsp; Add New</button></th>
+                </tr>
+              </thead>
+              <tbody *ngIf="daylist?.length">
+                <tr *ngFor="let item of daylist | paginate: { itemsPerPage: 10, autoHide:true, currentPage: p }; index as i">
+                  <td>{{item.day}}</td>
+                  <td>{{item.title}}</td>
+                  <td>{{item.date}}</td>
+                  <td class="text-right">
+                      <button data-id="{{ item._id }}" class="btn btn-primary btn-circle" (click)="editDay(dayid=item._id)" title="Edit Day"><i class="fa fa-edit"></i></button> 
+                      <button data-id="{{ item._id }}" (click)="deleteDay(dayid=item._id)" class="btn btn-danger btn-circle ml-2" title="Delete Day"><i class="fa fa-trash"></i></button> 
+                  </td>
+                </tr>
+              </tbody>
+
+              <tbody *ngIf="!daylist?.length && !showLoader">
+                <tr>
+                  <td colspan="5" class="text-center">No Data Found</td>
+                </tr>
+            </tbody>
+              
+          </table>
+            <div class="card-footer text-muted text-right" *ngIf="daylist?.length > 10"><div class=""> <pagination-controls (pageChange)="p = $event"></pagination-controls></div></div>
+            <div *ngIf="showLoader"><app-loader></app-loader></div>
+      </div>
+      <div class="card-footer text-muted">
+          <button type="button" class="btn btn-secondary " (click)="goBack()"><i class="fa fa-arrow-left"></i> Back</button>
+       
+      </div>
+  </div>
+</div>

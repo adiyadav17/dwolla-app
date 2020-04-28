@@ -1,0 +1,133 @@
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import "../src/assets/scss/sb-admin-2.min.css";
+// @import "../src/assets/scss/mixins";
+// @import "../src/assets/scss/utilities";
+// @import "../src/assets/scss";
+body {
+   // background: url('assets/img/banner.jpg') no-repeat center center fixed;
+   background-color: #eee;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    font-size: 1rem;
+    height: 100vh;
+    overflow-x: hidden;
+  }
+
+  .btn{
+    &.icon-btn{
+      padding: 5px 10px;
+    }
+    &.add-btn{
+      padding: 2px 7px;
+    }
+  }
+
+  .btn-brand{
+      background-color: #efba6c;
+      border-color: #efba6c;
+      color: #ffffff;
+      &:hover, &:not(:disabled):not(.disabled):active, &:focus, &:visited{
+        background-color: #f68b1f;
+        border-color: #f68b1f;
+        color: #ffffff;
+      }
+  }
+
+  .table{
+    td, th{
+      vertical-align: baseline;
+      text-align: left;
+    }
+  }
+
+  .file-upload-wrap{
+    background-color: #eee;
+    display: flex;
+    padding: 10px;
+    border-radius: 4px;
+    position: relative;
+  }
+  .file-upload-wrap input[type="file"]{
+    width: 87%;
+  }
+
+  .file-upload-img-wrap{
+    background-color: #eee;
+    border-radius: 5px;
+    width: 180px;
+    height: 90px;
+    overflow: hidden;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    padding: 10px;
+    &.dark{
+      background-color: #666666;
+    }
+    img{
+        margin: auto;
+        max-height: 100%;
+        max-width: 100%;
+    }
+
+    // .lds-ellipsis {
+    //   height: 32px !important;
+    //   float: right;
+    //    div{
+    //     top: 11px !important;
+    //    }
+    // }
+  }
+
+  .cursor-pointer{
+    cursor: pointer;
+  }
+
+
+  .loader-overley{
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 0;
+    text-align: center;
+    bottom: 0;
+    left: 0;
+
+    .lds-ellipsis {
+      display: inline-block;
+      position: relative;
+      width: 64px;
+      height: 64px;
+       div{
+        background: #ffffff !important;
+       }
+    }
+  }
+
+  .ngx-pagination {
+    margin: auto;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0 !important;
+    .current{
+      background: #f68b1f !important;
+      color: #ffffff !important;
+    }
+  }
+
+  .validation-message{
+    color: red;
+    font-size: 12px;
+  }
+
+.ngx-editor .ngx-editor-textarea {
+    min-height: 150px !important;
+}
+
+
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option{
+  display: flex !important;
+  align-items: center !important;
+}

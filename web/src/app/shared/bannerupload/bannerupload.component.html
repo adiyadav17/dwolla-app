@@ -1,0 +1,29 @@
+<div class="form-group">
+  <div for="file" class="mb-2">Banner <span class="text-muted">(1262X622px)</span></div>
+
+  <div class="mb-3 file-upload-wrap">
+      <input type="file" ng2FileSelect [uploader]="uploader" id="banner" (change)="readUrl($event)" />
+      <button type="button" class="btn btn-success btn-circle btn-s" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+        <i class="fa fa-cloud-upload"></i>
+      </button>
+      <div class="loader-overley" *ngIf="uploader.progress > 0 && uploader.progress < 100"><app-loader></app-loader></div>
+    </div>
+
+
+  <fieldset disabled *ngIf="bannerurl">
+      <div class="file-upload-img-wrap">
+        <img [src]="bannerurl" id="bannerurl">
+      </div>
+  </fieldset>
+
+  <fieldset disabled *ngIf="passBannerUrl && !bannerurl">
+      <div class="file-upload-img-wrap">
+      <!-- <input type="text" class="form-control" [value]="passImgUrl" id="imgUrl" placeholder="Disabled input"> -->
+      <img [src]="'http://craftedbycreative.com/'+passBannerUrl" id="passBannerUrl">
+    </div>
+</fieldset>
+
+
+
+
+</div>

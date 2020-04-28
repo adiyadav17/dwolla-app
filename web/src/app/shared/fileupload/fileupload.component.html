@@ -1,0 +1,27 @@
+<div class="form-group">
+    <div for="file" class="mb-2">Attachment for Download</div>
+
+    <div class="mb-3 file-upload-wrap">
+        <input type="file" ng2FileSelect [uploader]="uploader" id="download" (change)="readFile($event)" />
+        <button type="button" class="btn btn-success btn-circle btn-s" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+            <i class="fa fa-cloud-upload"></i>
+        </button>
+        <!-- <button (click)="clearSelectedPicture()">
+            Delete
+        </button> -->
+        <div class="loader-overley" *ngIf="uploader.progress > 0 && uploader.progress < 100"><app-loader></app-loader></div>
+      </div>
+
+    <fieldset disabled *ngIf="fileurl">
+      <div class="form-group">
+        <input type="text" class="form-control" [value]="fileurl" id="fileUrl" placeholder="Disabled input">
+      </div>
+    </fieldset>
+
+    <fieldset disabled *ngIf="passFileUrl && !fileurl">
+      <div class="form-group">
+        <input type="text" class="form-control" [value]="passFileUrl" id="fileUrl" placeholder="Disabled input">
+      </div>
+    </fieldset>
+
+  </div>
