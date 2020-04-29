@@ -4,23 +4,23 @@
   <div class="card shadow mb-4">
     <div class="card-header py-3">
       <h6 class="m-0 font-weight-bold text-primary float-left">Customers {{customerLength}}</h6>
-      <a class="btn btn-primary btn-sm float-right" role="button">
+      <button class="btn btn-primary btn-sm float-right" role="button">
         <span class="text-white small" routerLink="/addcustomers">Add Customer</span>
-      </a>
+      </button>
     </div>
     <div class="card-body">
         <div class="table">
             <div class="row">
               <div class="col-sm-12">
-                  <table class="table table-bordered dataTable">
+                  <table class="table table-bordered dataTable" *ngIf="customerlist">
                     <thead>
                       <tr role="row">
                         <th rowspan="1" colspan="1" style="width: 195px;">First Name</th>
                         <th rowspan="1" colspan="1" style="width: 295px;">Last Name</th>
-                        <th rowspan="1" colspan="1" style="width: 142px;">email</th>
+                        <th rowspan="1" colspan="1" style="width: 142px;">Email</th>
                         <th rowspan="1" colspan="1" style="width: 66px;">Type</th>
-                        <th rowspan="1" colspan="1" style="width: 132px;">status</th>
-                        <th rowspan="1" colspan="1"  style="width: 120px;">businessName</th></tr>
+                        <th rowspan="1" colspan="1" style="width: 132px;">Status</th>
+                        <th rowspan="1" colspan="1"  style="width: 120px;">Business Name</th></tr>
                     </thead>
                     <tbody>
                       <tr role="row" *ngFor="let customer of customerlist">
