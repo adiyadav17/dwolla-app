@@ -14,7 +14,6 @@ const client = new dwolla.Client({
   environment: 'sandbox' // optional - defaults to production
 });
 
-
 router.get("/get", (req, res) => {
   client.auth.client()
     .then(appToken => appToken.get('customers', {
