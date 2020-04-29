@@ -1,0 +1,48 @@
+<app-header></app-header>
+
+<div class="container-fluid">
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary float-left">Customers {{customerLength}}</h6>
+      <a class="btn btn-primary btn-sm float-right" role="button">
+        <span class="text-white small" routerLink="/addcustomers">Add Customer</span>
+      </a>
+    </div>
+    <div class="card-body">
+        <div class="table">
+            <div class="row">
+              <div class="col-sm-12">
+                  <table class="table table-bordered dataTable">
+                    <thead>
+                      <tr role="row">
+                        <th rowspan="1" colspan="1" style="width: 195px;">First Name</th>
+                        <th rowspan="1" colspan="1" style="width: 295px;">Last Name</th>
+                        <th rowspan="1" colspan="1" style="width: 142px;">email</th>
+                        <th rowspan="1" colspan="1" style="width: 66px;">Type</th>
+                        <th rowspan="1" colspan="1" style="width: 132px;">status</th>
+                        <th rowspan="1" colspan="1"  style="width: 120px;">businessName</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr role="row" *ngFor="let customer of customerlist">
+                        <td>{{customer.firstName}}</td>
+                        <td>{{customer.lastName}}</td>
+                        <td>{{customer.email}}</td>
+                        <td>{{customer.type}}</td>
+                        <td>
+                          <span >
+                          <i class="fa fa-circle text-success" *ngIf="customer.status === 'verified'"></i>
+                          <i class="fa fa-circle text-warning" *ngIf="customer.status === 'unverified'"></i>
+                          <i class="fa fa-circle text-danger" *ngIf="customer.status === 'deactivated'"></i>
+                          {{customer.status}}
+                        </span></td>
+                        <td>{{customer.businessName}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div *ngIf="showLoader" class="text-center loader-wraper"><app-loader></app-loader></div>
+              </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

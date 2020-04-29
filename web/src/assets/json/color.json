@@ -1,0 +1,63 @@
+[
+    {
+        "name": "Brown",
+        "code": "#ce6f3b"
+    },
+    {
+        "name": "Orange",
+        "code": "#f08a34"
+    },
+    {
+        "name": "Yellow",
+        "code": "#f6a71b"
+    },
+    {
+        "name": "See Blue",
+        "code": "#0ba6c8"
+    },
+    {
+        "name": "Light Blue",
+        "code": "#5e82c0"
+    },
+    {
+        "name": "Light Green",
+        "code": "#aecb36"
+    },
+    {
+        "name": "Dark Green",
+        "code": "#0f572f"
+    },
+    {
+        "name": "Green",
+        "code": "#25a84a"
+    },
+    {
+        "name": "Pink",
+        "code": "#e84691"
+    },
+    {
+        "name": "Dark Pink",
+        "code": "#e40a7e"
+    },
+    {
+        "name": "Red",
+        "code": "#e12127"
+    },
+    {
+        "name": "Green 1",
+        "code": "#798065"
+    },
+    {
+        "name": "Rust",
+        "code": "#a1866b"
+    },
+    {
+        "name": "Dark Rust",
+        "code": "#85755e"
+    },
+    {
+        "name": "Henna Green",
+        "code": "#868131"
+    }
+    
+]
