@@ -39,18 +39,16 @@ export class AddComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     this.cutomerForm.controls['type'].setValue('receive-only');
-    console.log(this.cutomerForm.value);
+
     if (this.cutomerForm.valid) {
       this.showLoader = true;
 
       this.userService.addCustomer(this.cutomerForm.value).subscribe(
         res => {
-          console.log(res);
           this.showLoader = false;
           this.router.navigateByUrl('/customers');
         },
         err => {
-          console.log(err);
           this.showLoader = false;
           this.serverErrorMessages = err.error.message;
           setTimeout(() => this.showSucessMessage = false, 4000);
