@@ -1,7 +1,7 @@
 {
   "name": "app",
   "version": "1.0.0",
-  "description": "Partner Login authentication system",
+  "description": "Dwolla authentication system",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
