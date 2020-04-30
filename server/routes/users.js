@@ -53,7 +53,6 @@ router.post("/add", (req, res) => {
           message: 'Internal server error.'
         });
       }
-
     });
 });
 

@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({
 
 app.get('/', (req, res) => {
   return res.json({
-    message: "test api"
+    message: "Dwolla test api"
   });
 });
 

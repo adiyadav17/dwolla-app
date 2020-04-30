@@ -13,7 +13,7 @@ export class CustomerComponent implements OnInit {
 
   constructor(private userService: UserService, private router: Router) {
     this.showLoader = true;
-   }
+  }
 
   ngOnInit() {
     this.getlist();
